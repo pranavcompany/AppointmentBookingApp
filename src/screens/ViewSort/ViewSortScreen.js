@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import PropTypes from 'prop-types';
 import {Alert} from 'react-native';
 import Button from '../../component/Button/Button';
@@ -10,8 +10,18 @@ import {
   Input,
 } from './ViewSortScreen.style';
 import Strings from '../../Constant';
+import {getData} from '../../utill';
 
-const ViewSortScreen = ({navigation}) => {
+  const ViewSortScreen = ({navigation}) => {
+    const [sortDetails,setSortDetails] = useState()
+    useEffect(()=>{
+      getData().then((details)=>{
+        setSortDetails(details)
+        console.log(details)
+        }).catch((e)=>{
+          console.log("error",e);
+        });
+    },[]);
 
   return (
     <Container>

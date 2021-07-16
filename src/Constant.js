@@ -1,5 +1,6 @@
 const Strings = {
   BOOK_APPOINTMENT_BTN: 'Book Appointments',
+  VIEW_APPOINTMENT_BTN: 'View Appointments',
   ENTER_USER_NAME: 'Enter user name',
   NEXT: 'Next',
   BUTTON_SCREEN: 'Button screen',
