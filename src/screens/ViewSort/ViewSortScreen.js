@@ -1,13 +1,14 @@
 import React,{useEffect,useState} from 'react';
 import PropTypes from 'prop-types';
-import {Alert} from 'react-native';
+import {FlatList,Text} from 'react-native';
 import Button from '../../component/Button/Button';
 import {
   Container,
   SubView,
   Header,
   Label,
-  Input,
+  ItemView,
+  ItemLabel
 } from './ViewSortScreen.style';
 import Strings from '../../Constant';
 import {getData} from '../../utill';
@@ -22,6 +23,24 @@ import {getData} from '../../utill';
           console.log("error",e);
         });
     },[]);
+
+
+  const Item = ({ item }) => (
+    <ItemView>
+      <Text style={{fontSize: 16}}>
+            {item}
+      </Text>
+  </ItemView>
+  );
+
+  const renderItem = ({ item }) => (
+    <>
+    <Item item={item.userName} />
+    <Item item={item.bookDate} />
+    <Item item={item.email} />
+    <Item item={item.phoneNumber} />
+  </>
+  );
 
   return (
     <Container>
@@ -44,6 +63,11 @@ import {getData} from '../../utill';
           />
         </Header>
       </SubView>
+      <FlatList
+        data={sortDetails}
+        renderItem={renderItem}
+        keyExtractor={item => item.bookDate}
+      />
     </Container>
   );
 };

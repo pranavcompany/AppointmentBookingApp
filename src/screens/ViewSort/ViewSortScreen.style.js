@@ -41,3 +41,16 @@ export const Button = styled(TouchableOpacity)`
   margin: 10px;
 `;
 
+export const ItemLabel = styled(Text)`
+  font-size: ${props => props.fontSize || 16}px;
+  text-align: left;
+  margin: ${props => props.margin || 15}px;
+  color: ${props => props.color || 'black'};
+`;
+
+export const ItemView = styled(Text)`
+  text-align: left;
+  marginHorizontal: 16px;
+  flex-direction: column;
+  background-color: grey;
+`;
